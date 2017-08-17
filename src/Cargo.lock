@@ -1152,9 +1152,18 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 name = "rustc-main"
 version = "0.0.0"
 dependencies = [
+ "env_logger 0.4.3 (registry+https://github.com/rust-lang/crates.io-index)",
+ "rustc 0.0.0",
  "rustc_back 0.0.0",
  "rustc_driver 0.0.0",
+ "rustc_errors 0.0.0",
+ "rustc_incremental 0.0.0",
+ "rustc_lint 0.0.0",
+ "rustc_metadata 0.0.0",
+ "rustc_shader 0.0.0",
+ "rustc_trans 0.0.0",
  "rustdoc 0.0.0",
+ "syntax 0.0.0",
 ]
 
 [[package]]
@@ -1265,6 +1274,7 @@ dependencies = [
  "rustc_privacy 0.0.0",
  "rustc_resolve 0.0.0",
  "rustc_save_analysis 0.0.0",
+ "rustc_shader 0.0.0",
  "rustc_trans 0.0.0",
  "rustc_typeck 0.0.0",
  "serialize 0.0.0",
@@ -1433,6 +1443,17 @@ dependencies = [
  "rustc_typeck 0.0.0",
  "syntax 0.0.0",
  "syntax_pos 0.0.0",
+]
+
+[[package]]
+name = "rustc_shader"
+version = "0.0.0"
+dependencies = [
+ "log 0.3.8 (registry+https://github.com/rust-lang/crates.io-index)",
+ "rustc 0.0.0",
+ "rustc_incremental 0.0.0",
+ "rustc_trans 0.0.0",
+ "syntax 0.0.0",
 ]
 
 [[package]]

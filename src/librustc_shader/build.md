@@ -1,0 +1,1 @@
+x.py build -i src/librustc_shader --stage 1 --keep-stage 0

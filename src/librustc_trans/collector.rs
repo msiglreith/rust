@@ -288,9 +288,9 @@ pub fn collect_crate_translation_items<'a, 'tcx>(scx: &SharedCrateContext<'a, 't
 
 // Find all non-generic items by walking the HIR. These items serve as roots to
 // start monomorphizing from.
-fn collect_roots<'a, 'tcx>(scx: &SharedCrateContext<'a, 'tcx>,
-                           mode: TransItemCollectionMode)
-                           -> Vec<TransItem<'tcx>> {
+pub fn collect_roots<'a, 'tcx>(scx: &SharedCrateContext<'a, 'tcx>,
+                               mode: TransItemCollectionMode)
+                               -> Vec<TransItem<'tcx>> {
     debug!("Collecting roots");
     let mut roots = Vec::new();
 
@@ -387,7 +387,7 @@ fn record_inlining_canditates<'a, 'tcx>(tcx: TyCtxt<'a, 'tcx, 'tcx>,
     inlining_map.record_inlining_canditates(caller, inlining_candidates);
 }
 
-fn check_recursion_limit<'a, 'tcx>(tcx: TyCtxt<'a, 'tcx, 'tcx>,
+pub fn check_recursion_limit<'a, 'tcx>(tcx: TyCtxt<'a, 'tcx, 'tcx>,
                                    instance: Instance<'tcx>,
                                    recursion_depths: &mut DefIdMap<usize>)
                                    -> (DefId, usize) {
@@ -421,7 +421,7 @@ fn check_recursion_limit<'a, 'tcx>(tcx: TyCtxt<'a, 'tcx, 'tcx>,
     (def_id, recursion_depth)
 }
 
-fn check_type_length_limit<'a, 'tcx>(tcx: TyCtxt<'a, 'tcx, 'tcx>,
+pub fn check_type_length_limit<'a, 'tcx>(tcx: TyCtxt<'a, 'tcx, 'tcx>,
                                      instance: Instance<'tcx>)
 {
     let type_length = instance.substs.types().flat_map(|ty| ty.walk()).count();
@@ -976,7 +976,7 @@ fn collect_neighbours<'a, 'tcx>(scx: &SharedCrateContext<'a, 'tcx>,
     }
 }
 
-fn def_id_to_string<'a, 'tcx>(tcx: TyCtxt<'a, 'tcx, 'tcx>,
+pub fn def_id_to_string<'a, 'tcx>(tcx: TyCtxt<'a, 'tcx, 'tcx>,
                               def_id: DefId)
                               -> String {
     let mut output = String::new();

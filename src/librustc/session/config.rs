@@ -1062,6 +1062,8 @@ options! {DebuggingOptions, DebuggingSetter, basic_debugging_options,
         "choose which RELRO level to use"),
     nll: bool = (false, parse_bool, [UNTRACKED],
                  "run the non-lexical lifetimes MIR pass"),
+    emit_shader: bool = (false, parse_bool, [TRACKED],
+        "emit shader code from HIR"),
 }
 
 pub fn default_lib_output() -> CrateType {

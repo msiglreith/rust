@@ -11,12 +11,25 @@ path = "rustc.rs"
 name = "rustdoc"
 path = "rustdoc.rs"
 
+[[bin]]
+name = "althaeac"
+path = "althaeac.rs"
+
 # All optional dependencies so the features passed to this Cargo.toml select
 # what should actually be built.
 [dependencies]
+env_logger = { version = "0.4", default-features = false }
+rustc = { path = "../librustc" }
 rustc_back = { path = "../librustc_back" }
 rustc_driver = { path = "../librustc_driver" }
+rustc_errors = { path = "../librustc_errors" }
+rustc_incremental = { path = "../librustc_incremental" }
+rustc_metadata = { path = "../librustc_metadata" }
+rustc_lint = { path = "../librustc_lint" }
+rustc_shader = { path = "../librustc_shader" }
+rustc_trans = { path = "../librustc_trans" }
 rustdoc = { path = "../librustdoc" }
+syntax = { path = "../libsyntax" }
 
 [features]
 jemalloc = ["rustc_back/jemalloc"]

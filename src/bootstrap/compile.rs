@@ -397,6 +397,14 @@ pub fn assemble_rustc(build: &Build, stage: u32, host: &str) {
         let _ = fs::remove_file(&rustdoc_dst);
         copy(&rustdoc_src, &rustdoc_dst);
     }
+
+    let althaeac = exe("althaeac", host);
+    let althaeac_src = out_dir.join(&althaeac);
+    let althaeac_dst = bindir.join(&althaeac);
+    if fs::metadata(&althaeac_src).is_ok() {
+        let _ = fs::remove_file(&althaeac_dst);
+        copy(&althaeac_src, &althaeac_dst);
+    }
 }
 
 /// Link some files into a rustc sysroot.
@@ -474,7 +482,6 @@ pub fn tool(build: &Build, stage: u32, target: &str, tool: &str) {
 
     build.run(&mut cargo);
 }
-
 
 // Avoiding a dependency on winapi to keep compile times down
 #[cfg(unix)]

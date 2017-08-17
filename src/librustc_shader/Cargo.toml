@@ -1,0 +1,16 @@
+[package]
+authors = ["The Rust Project Developers"]
+name = "rustc_shader"
+version = "0.0.0"
+
+[lib]
+name = "rustc_shader"
+path = "lib.rs"
+crate-type = ["dylib"]
+
+[dependencies]
+log = "0.3"
+rustc = { path = "../librustc" }
+rustc_incremental = { path = "../librustc_incremental" }
+rustc_trans = { path = "../librustc_trans" }
+syntax = { path = "../libsyntax" }
